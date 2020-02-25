@@ -13,12 +13,12 @@ import {After, Before, BeforeAll, AfterAll, Status, HookScenarioResult,World, se
 
  
 //Hooks
-After(async function (scenario:HookScenarioResult){
-
-      const screenShotFail= await browser.takeScreenshot();
-      this.attach(screenShotFail, "image/png");
-  
-})
+After(async function (scenario){
+  if(scenario.result.status === Status.FAILED){
+  const screenShotFail= await browser.takeScreenshot();
+  this.attach(screenShotFail, "image/png");
+} 
+});
 
 
 export let config: Config = {
