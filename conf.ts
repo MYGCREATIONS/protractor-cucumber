@@ -1,25 +1,5 @@
-// Because this file imports from  protractor, you'll need to have it as a
-// project dependency. Please see the reference config: lib/config.ts for more
-// information.
-//
-// Why you might want to create your config with typescript:
-// Editors like Microsoft Visual Studio Code will have autocomplete and
-// description hints.
-//
-// To run this example, run `protractor conf.js`.
-import {Config, browser, ElementFinder} from 'protractor';
+import {Config, browser} from 'protractor';
 import * as reporter from "cucumber-html-reporter";
-import {After, Before, BeforeAll, AfterAll, Status, HookScenarioResult,World, setWorldConstructor} from 'cucumber'
-
- 
-//Hooks
-After(async function (scenario){
-  if(scenario.result.status === Status.FAILED){
-  const screenShotFail= await browser.takeScreenshot();
-  this.attach(screenShotFail, "image/png");
-} 
-});
-
 
 export let config: Config = {
     framework: 'custom',
@@ -42,8 +22,6 @@ export let config: Config = {
       //tags help us execute specific scenarios of feature files
     },
 
-
-    
     // Before startign tests 
      onPrepare: async function () {
      // browser.waitForAngular()
@@ -66,8 +44,6 @@ export let config: Config = {
         password:'pwd'
       }
     },
-
-    
     onComplete: async function(){
     
       var options = {
@@ -89,16 +65,11 @@ export let config: Config = {
         }
     };
     reporter.generate(options);
+    browser.pause();
     console.log("All tests have been executed");
-  
+    
     },
-
-  
-
-  
-  
     // You could set no globals to true to avoid jQuery '$' and protractor '$'
     // collisions on the global namespace.
     noGlobals: true,
-   
   };
