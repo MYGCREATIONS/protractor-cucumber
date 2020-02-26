@@ -24,13 +24,15 @@
     "@types/protractor": "4.0.0",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
+    "circular-json": "^0.5.9",
     "cucumber": "^2.3.1",
     "cucumber-html-reporter": "5.1.0",
     "jasmine": "^3.3.1",
     "protractor": "^5.4.0",
     "protractor-cucumber-framework": "3.1.2",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.1",
+    "@types/circular-json": "0.4.0"
   },
   "devDependencies": {
     "@types/selenium-webdriver": "^4.0.0"
