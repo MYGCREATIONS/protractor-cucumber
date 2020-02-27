@@ -33,9 +33,8 @@ Then('I should get {stringInDoubleQuotes} as a result', async function (anwser) 
   //Assertion styles
   //using expect x=>expect(Number(x)).to.equal(anwser)
   //using assert assert.equal(anwser,Number(x))
-  await calPage.getResult().then(x=>assert.equal(anwser,Number(x)));
-  // Write code here that turns the phrase above into concrete actions
- 
+  let result = await calPage.getResult();
+  assert.equal(anwser,Number(result));
 });
 
 

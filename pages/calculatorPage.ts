@@ -22,11 +22,14 @@ public world:terrain;
   
 
 async enterNumber(field: string, value: number):Promise<void>{
+  let x:ElementFinder;
   if(field == "first"){
-  await this.world.explicitWaitClickable(this.aPL.firstNumber).then((element)=>element.sendKeys(value));
-  }
+  x = await this.world.explicitWaitClickable(this.aPL.firstNumber);
+  x.sendKeys(value);
+}
   else if(field == "second"){
-  await this.world.explicitWaitClickable(this.aPL.secondNumber).then((element)=>element.sendKeys(value));
+  x = await this.world.explicitWaitClickable(this.aPL.secondNumber);
+  x.sendKeys(value);
   }
   else{
     Error("The field doesnot exist");
@@ -34,20 +37,24 @@ async enterNumber(field: string, value: number):Promise<void>{
 }
 
 async sumbit():Promise<void>{
-  await this.world.explicitWaitClickable(this.aPL.goButton).then((element)=>element.click());
+  let x:ElementFinder;
+  x = await this.world.explicitWaitClickable(this.aPL.goButton);
+  x.click();
 }
 
 async selectOperation(operation:string):Promise<void>{
-  
-  await this.world.explicitWaitClickable(this.aPL.operation(operation)).then((element)=>element.click());
+  let x:ElementFinder;
+  x = await this.world.explicitWaitClickable(this.aPL.operation(operation));
+  x.click();
   }  
 
 
 
   async getResult(): Promise<string>{
-
- return await this.world.explicitWaitVisible(this.aPL.result).then((element)=>element.getText());;
-  }
+    let x:ElementFinder;
+    x = await this.world.explicitWaitVisible(this.aPL.result);
+    return x.getText();
+}
 
 
 }
