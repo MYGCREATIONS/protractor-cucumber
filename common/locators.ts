@@ -10,7 +10,13 @@ export class calculatorPageLocators{
     operation = (opName:string)=>{return element(by.cssContainingText('option',opName))}
 }
 
-export class OtherPageLocator{
-    locator:ElementFinder;
-    
+export class clickAcademyPageLocators{
+    name:ElementFinder = element(by.xpath("//label[contains(text(),'Name')]//parent::div//child::input"));
+    email:ElementFinder = element(by.xpath("//label[contains(text(),'Email')]//parent::div//child::input"));
+    password:ElementFinder =  element(by.xpath("//label[contains(text(),'Password')]//parent::div//child::input"));
+    gender:ElementFinder = element(by.cssContainingText('option',"Male"));
+    employmentStatus:ElementFinder = element(by.id('inlineRadio1'));
+    dateOfBirth:ElementFinder = element(by.xpath("//label[contains(text(),'Date of Birth')]//parent::div//child::input"));
+    submitButton:ElementFinder = element(by.buttonText("Submit"));
+    successMessage:ElementFinder = element(by.css('.alert.alert-sucess.alert-dismissible'));
 }

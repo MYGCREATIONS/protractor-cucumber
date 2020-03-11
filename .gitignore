@@ -5,3 +5,11 @@ tmp
 tsconfig.json
 package-lock.json
 debug.log
+a.js
+a.ts
+b.js
+b.ts
+c.js
+c.ts
+testing.js
+testing.ts

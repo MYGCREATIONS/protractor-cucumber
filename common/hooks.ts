@@ -7,6 +7,7 @@ import { readSync } from "fs";
 After(async function(scenario){
   let result = JSON.parse(cjson.stringify(scenario)); 
   if (result["status"] === Status.FAILED) {    
+      console.log("screenshot captured");
       const screenShotFail= await browser.takeScreenshot();
       this.attach(screenShotFail, "image/png");     
     }
