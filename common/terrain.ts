@@ -6,26 +6,51 @@ export class terrain{
 
    async explicitWaitClickable(element:ElementFinder):Promise<ElementFinder>{
     const x = EC.elementToBeClickable(element);
+    try{
     await browser.wait(x,browser.params.WaitingTime.clickable,`Element ${element.locator().toString()} is not clickable`);
-    return element;          
+    return element; 
+    }
+    catch(e){
+      console.error(e.stack);
+      throw e;
+    }         
 }
   
  async explicitWaitVisible(element:ElementFinder):Promise<ElementFinder>{
    const x = EC.visibilityOf(element);
-   await browser.wait(x,browser.params.WaitingTime.visible,`Element ${element.locator().toString()} is not visible`);
-   return element;
+   try{;
+     await browser.wait(x,browser.params.WaitingTime.visible,`Element ${element.locator().toString()} is not visible`);
+     return element;
+   }
+   catch(e){
+     console.error(e.stack);
+     throw e;
+   }
 }
 
  async explicitWaitPresence(element:ElementFinder):Promise<ElementFinder>{
    const x = EC.presenceOf(element);
-   await browser.wait(x,browser.params.WaitingTime.presence,`Element is not present`);
+   try{
+   await browser.wait(x,browser.params.WaitingTime.presence,`Element ${element.locator().toString()} is not present`);
    return element;
+   }
+   catch(e){
+    console.error(e.stack);
+    throw e;
+   }
+   
 }
 
  async verifyElementAbsent(element:ElementFinder):Promise<ElementFinder>{
    const x = EC.invisibilityOf(element);
-   await browser.wait(x,browser.params.WaitingTime.presence,"Element should not be present, but it is");
-  return element;
+   try{
+    await browser.wait(x,browser.params.WaitingTime.presence,"Element should not be present, but it is");
+    return element;
+   }
+   catch(e){
+     console.error(e.stack);
+    throw e;
+   }
 }
 
  async implicitWaitReset(time:number){
