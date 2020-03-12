@@ -1,23 +1,20 @@
 import {Config, browser} from 'protractor';
 import * as reporter from "cucumber-html-reporter";
-
+import { Driver } from 'selenium-webdriver/chrome';
+import {setDefaultTimeout} from 'cucumber'
 export let config: Config = {
     framework: 'custom',
     capabilities: {
       browserName: 'chrome'
     },
-    specs: ['../stepDefinations/*.feature'],
-  
-   //   'spec.js',
-   
+    specs: ['../stepDefinations/features/formSubmission.feature'],
     directConnect: true,
     frameworkPath: require.resolve('protractor-cucumber-framework'),
-
     cucumberOpts: {
       compiler: "ts:ts-node/register",
       format: 'json:./report/cucumber_report.json',
       require: ['../stepDefinations/*.ts'],
-      tags:['@CalculatorSmokeTesting1']
+      tags:[]
     //  output: './reports/cucumber_report.html',
       //tags help us execute specific scenarios of feature files
     },
@@ -28,18 +25,19 @@ export let config: Config = {
      console.log("on prepare funciton called");
      await browser.manage().window().maximize(); // maximize the browser before executing the feature files
      await browser.manage().timeouts().implicitlyWait(10*1000);
+     await setDefaultTimeout(60*1000);
      await browser.get(browser.params.Login.Url);
     },
 
     params:{
       WaitingTime:{
-        visiblity:1000*180,
-        clickability:1000*10,
-        presence:1000*5,
+        visible:20*1000,
+        clickable:10*1000,
+        presence:5*1000,
   
       },
       Login:{
-        Url:'http://juliemr.github.io/protractor-demo/',
+        Url:'https://qaclickacademy.github.io/protocommerce/',
         userame:'yousuf',
         password:'pwd'
       }
@@ -63,6 +61,7 @@ export let config: Config = {
             "Parallel": "Scenarios",
             "Executed": "Remote"
         }
+        
     };
     reporter.generate(options);
     browser.pause();

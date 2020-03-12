@@ -18,5 +18,5 @@ export class clickAcademyPageLocators{
     employmentStatus:ElementFinder = element(by.id('inlineRadio1'));
     dateOfBirth:ElementFinder = element(by.xpath("//label[contains(text(),'Date of Birth')]//parent::div//child::input"));
     submitButton:ElementFinder = element(by.buttonText("Submit"));
-    successMessage:ElementFinder = element(by.css('.alert.alert-sucess.alert-dismissible'));
+    successMessage:ElementFinder = element(by.css('.alert.alert-success.alert-dismissible'));
 }

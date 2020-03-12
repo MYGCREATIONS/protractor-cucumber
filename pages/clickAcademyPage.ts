@@ -14,24 +14,24 @@ public world:terrain;
   }
 
   async FastFormSubmission():Promise<void>{
-    (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys(browser.params.Login.username);
-    await this.world.debugSleep(true);
+    (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys("username");
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.name)).clear();
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys("another username ");
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.email)).sendKeys("test@gmail.com");
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.password)).sendKeys("pwd"); 
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     await this.world.explicitWaitClickable(this.caPL.gender);
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.employmentStatus)).click();
-   await this.world.debugSleep(true);
+   await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.dateOfBirth)).sendKeys("02/02/1990");
-    await this.world.debugSleep(true);
+    await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.submitButton)).click();
-    await this.world.debugSleep(true); 
+    await this.world.debugSleep(false); 
 
   }
 
