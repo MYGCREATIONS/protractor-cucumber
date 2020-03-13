@@ -18,6 +18,7 @@ public world:terrain;
     await this.world.debugSleep(false);
     console.log("this is another update ");
     console.log("this is just a small testing");
+    console.log("This is new to added something");
     (await this.world.explicitWaitClickable(this.caPL.name)).clear();
     await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys("another username ");
