@@ -18,6 +18,7 @@ public world:terrain;
     await this.world.debugSleep(false);
     console.log("this is another update ");
     console.log("this is just a small testing");
+    console.log("this is new update just after merging");
     (await this.world.explicitWaitClickable(this.caPL.name)).clear();
     await this.world.debugSleep(false);
     (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys("another username ");
