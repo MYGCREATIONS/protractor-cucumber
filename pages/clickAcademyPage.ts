@@ -16,6 +16,7 @@ public world:terrain;
   async FastFormSubmission():Promise<void>{
     (await this.world.explicitWaitClickable(this.caPL.name)).sendKeys("username");
     await this.world.debugSleep(false);
+    console.log("this is another update ");
     console.log("this is just a small testing");
     (await this.world.explicitWaitClickable(this.caPL.name)).clear();
     await this.world.debugSleep(false);
