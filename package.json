@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "debug": "",
+    "install": "npm install",
     "pretest": "npm run tsc",
     "test": "protractor ./tmp/conf.js",
     "tsc": "tsc",
