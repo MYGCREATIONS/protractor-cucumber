@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "debug": "",
-    "pretest": "npm run tsc & npm install",
+    "pretest": "npm install & npm run tsc",
     "test": "protractor ./tmp/conf.js",
     "tsc": "tsc",
     "webdriver-update": "webdriver-manager update --standalone=false --gecko=false"
