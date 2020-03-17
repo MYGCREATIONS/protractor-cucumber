@@ -7,7 +7,7 @@ export let config: Config = {
     capabilities: {
       browserName: 'chrome'
     },
-    specs: ['../stepDefinations/features/formSubmission.feature'],
+    specs: ['../stepDefinations/features/test.feature'],
     directConnect: true,
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
@@ -37,7 +37,7 @@ export let config: Config = {
   
       },
       Login:{
-        Url:'https://qaclickacademy.github.io/protocommerce/',
+        Url:'http://juliemr.github.io/protractor-demo/',
         userame:'yousuf',
         password:'pwd'
       }
@@ -49,7 +49,7 @@ export let config: Config = {
         jsonFile: './report/cucumber_report.json',
         output: './report/cucumber_report.html',
         screenshotsDirectory: './screenshots/',
-        storeScreenshots: false,
+        storeScreenshots: true,
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
         launchReport: true,
@@ -64,7 +64,7 @@ export let config: Config = {
         
     };
     reporter.generate(options);
-    browser.pause();
+  //this.browser.pause();
     console.log("All tests have been executed");
     
     },

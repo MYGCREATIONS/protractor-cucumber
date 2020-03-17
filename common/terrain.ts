@@ -1,5 +1,7 @@
 import * as stack from "stack-trace";
-import { ExpectedConditions, ElementFinder, browser, WebElement } from "protractor";
+import { ExpectedConditions, ElementFinder, browser, WebElement, ElementArrayFinder, element } from "protractor";
+import { elementTextContains } from "selenium-webdriver/lib/until";
+import { Locator } from "selenium-webdriver";
 
 const EC = ExpectedConditions;
 export class terrain{
@@ -8,7 +10,7 @@ export class terrain{
     const x = EC.elementToBeClickable(element);
     try{
     await browser.wait(x,browser.params.WaitingTime.clickable,`Element ${element.locator().toString()} is not clickable`);
-    return element; 
+    return await element; 
     }
     catch(e){
       console.error(e.stack);
@@ -18,9 +20,9 @@ export class terrain{
   
  async explicitWaitVisible(element:ElementFinder):Promise<ElementFinder>{
    const x = EC.visibilityOf(element);
-   try{;
+   try{
      await browser.wait(x,browser.params.WaitingTime.visible,`Element ${element.locator().toString()} is not visible`);
-     return element;
+     return await element;
    }
    catch(e){
      console.error(e.stack);
@@ -32,20 +34,24 @@ export class terrain{
    const x = EC.presenceOf(element);
    try{
    await browser.wait(x,browser.params.WaitingTime.presence,`Element ${element.locator().toString()} is not present`);
-   return element;
+   return await element;
    }
    catch(e){
     console.error(e.stack);
     throw e;
    }
-   
 }
+
+//async getAllElements(elementz:):Promise<ElementFinder[]>{  
+ // return await element.all(elementz);
+//}
+
 
  async verifyElementAbsent(element:ElementFinder):Promise<ElementFinder>{
    const x = EC.invisibilityOf(element);
    try{
     await browser.wait(x,browser.params.WaitingTime.presence,"Element should not be present, but it is");
-    return element;
+    return await element;
    }
    catch(e){
      console.error(e.stack);

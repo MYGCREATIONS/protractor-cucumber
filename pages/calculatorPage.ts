@@ -4,7 +4,7 @@
 // import {browser, element, by, By, $, $$, ExpectedConditions}
 //   from 'protractor';
 //
-import {browser, element, by, ElementFinder} from 'protractor';
+import {browser, element, by, ElementFinder, ElementArrayFinder} from 'protractor';
 import {calculatorPageLocators}  from '../common/locators';
 import {terrain} from '../common/terrain'; 
 
@@ -39,21 +39,32 @@ async enterNumber(field: string, value: number):Promise<void>{
 async sumbit():Promise<void>{
   let x:ElementFinder;
   x = await this.world.explicitWaitClickable(this.aPL.goButton);
-  x.click();
+  await x.click();
 }
 
 async selectOperation(operation:string):Promise<void>{
   let x:ElementFinder;
   x = await this.world.explicitWaitClickable(this.aPL.operation(operation));
-  x.click();
+  await x.click();
   }  
 
+async getCount():Promise<Number>{
+  let x:ElementFinder[];
+  x = await this.aPL.history;
+  return await x.length;
+}
 
+async getResultFromHistory():Promise<string>{
+  let x:ElementFinder;
+  x = await this.world.explicitWaitVisible(this.aPL.historySpecific);
+  return await (await x.getText()).toString();
+  //return await((await x.getText()).toString().split(" ").slice(-1)[0]);
+}
 
   async getResult(): Promise<string>{
     let x:ElementFinder;
     x = await this.world.explicitWaitVisible(this.aPL.result);
-    return x.getText();
+    return await x.getText();
 }
 
 
