@@ -35,14 +35,15 @@ Then('I should get {stringInDoubleQuotes} as a result', async function (anwser) 
   //using assert assert.equal(anwser,Number(x))
   let result = await calPage.getResult();
   let resultHistory = await calPage.getResultFromHistory();
-  console.log(resultHistory);
+  let expressionHistory = await calPage.getExpressionFromHistory();
+  let timeHistory = await calPage.getTimeFromHistory();
   assert.equal(result,resultHistory);
   assert.equal(anwser,Number(result));
 });
 
 Then('I should have {int} count in history', async function(count){
 let actualCount = await calPage.getCount();
-await console.log(actualCount);
+//await console.log(actualCount);
 assert.equal(count,actualCount)
 });
 

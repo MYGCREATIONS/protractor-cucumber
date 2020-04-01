@@ -51,14 +51,28 @@ async selectOperation(operation:string):Promise<void>{
 async getCount():Promise<Number>{
   let x:ElementFinder[];
   x = await this.aPL.history;
-  return await x.length;
+  return x.length;
 }
 
 async getResultFromHistory():Promise<string>{
   let x:ElementFinder;
-  x = await this.world.explicitWaitVisible(this.aPL.historySpecific);
-  return await (await x.getText()).toString();
-  //return await((await x.getText()).toString().split(" ").slice(-1)[0]);
+  x = await this.world.explicitWaitVisible(this.aPL.historyResult);
+  await console.log((await x.getText()).toString());
+  return (await x.getText()).toString();
+}
+
+async getTimeFromHistory():Promise<string>{
+  let x:ElementFinder;
+  x = await this.world.explicitWaitVisible(this.aPL.historyTime);
+  await console.log((await x.getText()).toString());
+  return (await x.getText()).toString();
+}
+
+async getExpressionFromHistory():Promise<string>{
+  let x:ElementFinder;
+  x = await this.world.explicitWaitVisible(this.aPL.historyExpression);
+  await console.log((await x.getText()).toString());
+  return (await x.getText()).toString();
 }
 
   async getResult(): Promise<string>{

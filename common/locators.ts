@@ -10,7 +10,9 @@ export class calculatorPageLocators{
     operation = (opName:string)=>{return element(by.cssContainingText('option',opName))}
     history:ElementArrayFinder = element.all(by.repeater('result in memory').row(0));
     historyRow:ElementFinder = element(by.repeater('result in memory').row(0));
-    historySpecific:ElementFinder = this.historyRow.element(by.xpath("(//td[3])[1]"))
+    historyResult:ElementFinder = this.historyRow.element(by.xpath("(//td[3])[1]"))
+    historyTime:ElementFinder = this.historyRow.element(by.xpath("(//td[1])[1]"));
+    historyExpression:ElementFinder = this.historyRow.element(by.xpath("(//td[2])[1]"))
 }
 
 export class clickAcademyPageLocators{
