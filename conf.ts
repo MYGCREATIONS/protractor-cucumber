@@ -1,5 +1,5 @@
 import {Config, browser} from 'protractor';
-import * as reporter from "cucumber-html-reporter";
+import * as report from "cucumber-html-reporter";
 import { Driver } from 'selenium-webdriver/chrome';
 import {setDefaultTimeout} from 'cucumber'
 export let config: Config = {
