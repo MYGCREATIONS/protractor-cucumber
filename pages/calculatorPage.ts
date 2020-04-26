@@ -1,9 +1,4 @@
-// Because this file references protractor, you'll need to have it as a project
-// dependency to use 'protractor'. Here is the full list of imports:
-//
-// import {browser, element, by, By, $, $$, ExpectedConditions}
-//   from 'protractor';
-//
+
 import {browser, element, by, ElementFinder, ElementArrayFinder} from 'protractor';
 import {calculatorPageLocators}  from '../common/locators';
 import {terrain} from '../common/terrain'; 
