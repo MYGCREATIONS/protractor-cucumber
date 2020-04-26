@@ -24,6 +24,7 @@ public world:terrain;
 async enterNumber(field: string, value: number):Promise<void>{
   let x:ElementFinder;
   if(field == "first"){
+  this.world.tinySleep();
   x = await this.world.explicitWaitClickable(this.aPL.firstNumber);
   x.sendKeys(value);
 }
