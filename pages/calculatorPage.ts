@@ -78,6 +78,7 @@ async getExpressionFromHistory():Promise<string>{
 
   async getResult(): Promise<string>{
     let x:ElementFinder;
+    this.world.tinySleep();
     x = await this.world.explicitWaitVisible(this.aPL.result);
     return await x.getText();
 }
