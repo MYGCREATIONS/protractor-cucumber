@@ -42,7 +42,7 @@ async sumbit():Promise<void>{
 async selectOperation(operation:string):Promise<void>{
   let x:ElementFinder;
   x = await this.world.explicitWaitClickable(this.aPL.operation(operation));
-  await x.click();
+  x.click();
   }  
 
 async getCount():Promise<Number>{
