@@ -9,6 +9,7 @@ let calPage = new calculatorPage();
 
 Given('I have the calculator application', async function () {
   // Write code here that turns the phrase above into concrete actions
+  //this is a concrete action
   
 });
 
