@@ -13,7 +13,6 @@ public world:terrain;
   constructor(){
     this.world = new terrain(); 
     this.aPL = new calculatorPageLocators();
-    console.log("This is a error");
   }
   
 
